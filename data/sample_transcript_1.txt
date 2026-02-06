@@ -1,0 +1,38 @@
+Meeting: Weekly Product Sync
+Date: Jan 22, 2026
+Attendees: Alex, Priya, Jordan, Sam
+Duration: 30 minutes
+
+⸻
+
+Alex: Alright, let’s get started. First thing, we need to finalize the onboarding flow changes we discussed last week.
+
+Priya: Yeah, I can take that. I’ll update the onboarding screens and share mocks by Friday.
+
+Jordan: Cool. On the infra side, we’re still seeing some latency spikes. I think we should investigate caching options.
+
+Sam: Are we assigning that now or just exploring?
+
+Alex: Let’s assign it. Jordan, can you look into caching strategies and give us a recommendation by next Wednesday?
+
+Jordan: Yep, sounds good.
+
+Priya: Also, the customer feedback summary — I didn’t get to it yet.
+
+Alex: Okay, can you finish that early next week?
+
+Priya: Yes, I’ll send it out by Monday.
+
+Sam: Quick note — we probably need to loop in design for the new dashboard, but that’s not urgent.
+
+Alex: Agreed. Let’s park that for now.
+
+Alex: One more thing: we should schedule a follow-up meeting once the onboarding mocks are ready.
+
+Sam: I can set that up after Priya shares the mocks.
+
+Alex: Perfect.
+
+Alex: Anything else?
+
+Jordan: No, that’s it.
