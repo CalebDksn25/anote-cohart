@@ -1,0 +1,54 @@
+{
+  "action_items": [
+    {
+      "text": "Update the onboarding screens and share mocks",
+      "owner": "Priya",
+      "due": "2026-01-23",
+      "evidence": "Priya: I’ll update the onboarding screens and share mocks by Friday.",
+      "needs_human_review": false,
+      "reason": null
+    },
+    {
+      "text": "Investigate caching strategies and provide a recommendation",
+      "owner": "Jordan",
+      "due": "2026-01-28",
+      "evidence": "Alex: Jordan, can you look into caching strategies and give us a recommendation by next Wednesday?",
+      "needs_human_review": false,
+      "reason": null
+    },
+    {
+      "text": "Finish the customer feedback summary and send it out",
+      "owner": "Priya",
+      "due": "2026-01-26",
+      "evidence": "Priya: Yes, I’ll send it out by Monday.",
+      "needs_human_review": false,
+      "reason": null
+    },
+    {
+      "text": "Schedule a follow-up meeting once onboarding mocks are ready",
+      "owner": "Sam",
+      "due": null,
+      "evidence": "Sam: I can set that up after Priya shares the mocks.",
+      "needs_human_review": true,
+      "reason": "No explicit date provided; depends on when mocks are shared."
+    }
+  ],
+  "decisions": [
+    {
+      "text": "Assign investigation of caching strategies to Jordan",
+      "evidence": "Alex: Let’s assign it. Jordan, can you look into caching strategies and give us a recommendation by next Wednesday?"
+    },
+    {
+      "text": "Park looping in design for the new dashboard for now",
+      "evidence": "Alex: Agreed. Let’s park that for now."
+    }
+  ],
+  "follow_ups": [
+    {
+      "text": "Hold a follow-up meeting after onboarding mocks are ready",
+      "owner": "Sam",
+      "due": null,
+      "evidence": "Alex: we should schedule a follow-up meeting once the onboarding mocks are ready."
+    }
+  ]
+}
