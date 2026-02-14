@@ -9,6 +9,8 @@ From the transcript, extract three things:
 
 OUTPUT REQUIREMENTS
 - Return ONLY valid JSON (no markdown, no extra text).
+- Set due_raw to the exact phrase from the transcript (e.g. "by Friday", "by next Wednesday"),
+- Set due to null unless the transcript gives an explicit calendar date
 - The JSON must have exactly these top-level keys:
   - "action_items" (array)
   - "decisions" (array)

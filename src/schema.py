@@ -3,6 +3,7 @@ SCHEMA = {
         {
             "text": "string",
             "owner": "string or null",
+            "due_raw": "string or null",
             "due": "ISO date string (YYYY-MM-DD) or null",
             "evidence": "string",
             "needs_human_review": "boolean",
