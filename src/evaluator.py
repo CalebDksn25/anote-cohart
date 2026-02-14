@@ -2,6 +2,8 @@ from typing import Any, Dict, List, Tuple, Optional
 from difflib import SequenceMatcher
 
 
+#TODO: Explore different evailation matrics
+
 def text_sim(a: str, b: str) -> float:
     """
     Compute a similarity score between two strings using SequenceMatcher.
