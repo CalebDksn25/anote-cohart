@@ -1,15 +1,46 @@
 from typing import Any, Dict, List, Tuple, Optional
-from difflib import SequenceMatcher
+from collections import Counter
+import re
 
 
-#TODO: Explore different evailation matrics
+# TODO: Explore different evailation matrics
+
+_TOKEN_RE = re.compile(r"[A-Za-z0-9]+")
+
+
+def _tokenize(text: str) -> List[str]:
+    return _TOKEN_RE.findall(text.lower())
+
+
+def _f1_over_tokens(a: str, b: str) -> float:
+    """
+    Compute token-based F1 between two strings.
+    Uses a bag-of-words tokenization and counts overlap.
+    """
+    a_tokens = _tokenize(a)
+    b_tokens = _tokenize(b)
+
+    if not a_tokens and not b_tokens:
+        return 1.0
+    if not a_tokens or not b_tokens:
+        return 0.0
+
+    a_counts = Counter(a_tokens)
+    b_counts = Counter(b_tokens)
+    overlap = sum((a_counts & b_counts).values())
+    if overlap == 0:
+        return 0.0
+
+    precision = overlap / sum(a_counts.values())
+    recall = overlap / sum(b_counts.values())
+    return (2 * precision * recall) / (precision + recall)
+
 
 def text_sim(a: str, b: str) -> float:
     """
-    Compute a similarity score between two strings using SequenceMatcher.
-    The strings are lowercased and stripped of leading/trailing whitespace before comparison.
+    Compute a similarity score between two strings using token-based F1.
     """
-    return SequenceMatcher(None, a.lower().strip(), b.lower().strip()).ratio()
+    return _f1_over_tokens(a, b)
 
 
 def best_text_match(
