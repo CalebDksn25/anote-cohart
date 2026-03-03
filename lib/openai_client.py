@@ -18,7 +18,7 @@ class OpenAIClient:
     def chat_completion(self, 
                         messages: list[dict], 
                         model: str = "gpt-4o-mini", 
-                        temperature: float = 0.7, 
+                        temperature: float = 0.0,
                         response_format: dict | None = None
         ):
         

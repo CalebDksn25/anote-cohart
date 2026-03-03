@@ -48,7 +48,7 @@ class LLMExtractor:
             for item in data.get("follow_ups", []):
 
                 # Get the raw due date phrase from the follow-up item dictionary, which is expected to be set by the LLM based on the system prompt. This will allow the extractor to have access to the original due date phrase from the transcript for normalization.
-                due_raw = item.get("follow_ups", [])
+                due_raw = item.get("due_raw")
                 normalized = normalize_due_raw(meeting_date, due_raw)
 
                 # Set the normalized due date in the follow-up item dictionary. This will allow the extractor to have a standardized date format for the due dates in follow-ups as well, which can be used for further processing or evaluation.
