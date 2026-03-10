@@ -1,0 +1,44 @@
+Meeting: Q1 Design Review
+Date: Feb 10, 2026
+Attendees: Sofia, Raj, Chloe, Nathan, Priya
+Duration: 45 minutes
+
+⸻
+
+Sofia: Thanks everyone for joining. Today we're reviewing the new checkout flow designs that Raj and Chloe put together.
+
+Raj: I'll share my screen. So we explored two directions — a single-page checkout and a multi-step wizard. After user testing last week, the single-page approach had a 23% higher completion rate.
+
+Chloe: Right, and the wizard confused users on mobile. We're recommending we go with the single-page design.
+
+Nathan: I like it overall. One concern — the coupon code field is buried at the bottom. Users in our last survey said discounts are a top motivation. Can we move that up?
+
+Raj: That's fair. We can explore that in the next iteration.
+
+Sofia: Let's make that a decision: we're going with the single-page checkout. Raj, can you update the mockups to move the coupon field above the order summary?
+
+Raj: I can get that done by Jan 25th.
+
+Sofia: Good. Chloe, can you schedule a follow-up usability test once the updated mocks are ready?
+
+Chloe: Sure, I'll set it up in 2 weeks once Raj has the revisions done.
+
+Priya: Should we loop in engineering now to estimate the build effort?
+
+Nathan: I'd say wait until the design is finalized. No point estimating something that might change.
+
+Sofia: Agreed. We'll bring engineering in after this revision round. Nathan, can you prep a list of technical questions for them in the meantime?
+
+Nathan: I'll have something ready by next Monday.
+
+Sofia: Perfect. Also, we decided last meeting to drop the guest checkout option — just confirming that's still the plan.
+
+Raj: Yes, confirmed. Account creation only.
+
+Sofia: Great. I'll send out the meeting notes today. Any final questions?
+
+Chloe: Nope.
+
+Nathan: We're good.
+
+Sofia: Thanks everyone.

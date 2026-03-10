@@ -1,0 +1,38 @@
+Meeting: Engineering Standup
+Date: Feb 3, 2026
+Attendees: Marcus, Leila, Dani, Tom
+Duration: 15 minutes
+
+⸻
+
+Marcus: Quick standup. Let's go around. Leila, what's your status?
+
+Leila: Yesterday I finished the API rate limiter. Today I'm starting on the auth token refresh logic. No blockers.
+
+Marcus: Great. Dani?
+
+Dani: I'm still working through the database migration scripts. Hit a snag with the foreign key constraints. Tom, can you take a look when you're free?
+
+Tom: Yeah I can pair with you on that. Let's say tomorrow afternoon?
+
+Dani: Works for me.
+
+Marcus: Tom, your update?
+
+Tom: Deployed the staging build last night. Found two regressions in the payment flow — I'll file the tickets today and assign them to Leila.
+
+Leila: Got it. I'll prioritize those over the token refresh if they're blocking.
+
+Marcus: Good call. Also, we need to update the API docs before the client demo. Who can own that?
+
+Dani: I'll handle it. I can have a draft ready by Thursday.
+
+Marcus: Perfect. One more thing — we need to decide on the logging framework. I want everyone to review the two options I sent last week and give me feedback by end of week.
+
+Tom: Will do.
+
+Leila: Same.
+
+Dani: Yep.
+
+Marcus: Alright, let's keep it moving. Talk tomorrow.

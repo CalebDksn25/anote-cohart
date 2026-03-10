@@ -1,0 +1,54 @@
+Meeting: Monthly All-Hands — Engineering
+Date: Mar 3, 2026
+Attendees: Zoe (VP Engineering), Finn, Abby, Leo, Carmen, Hiro, Diana, Sam, Kai
+Duration: 60 minutes
+
+⸻
+
+Zoe: Welcome everyone. A few updates before we get into Q&A. We shipped v2.4 last week — on time, no regressions. That's three clean releases in a row. Huge thanks to the whole team.
+
+Finn: The monitoring improvements we made in January are really paying off. We caught two potential incidents before they became real ones this month.
+
+Zoe: Exactly. That's the kind of proactive work I want to celebrate. Now, a few priorities for this quarter.
+
+Abby: Are we still targeting the platform migration for Q2?
+
+Zoe: Yes. We're committing to having the new infra ready in staging by April 30th. Leo, you're leading that — any risks we should flag?
+
+Leo: The main risk is the database schema diff. It's larger than we initially scoped. I'd like to bring in Carmen to help for the next six weeks.
+
+Zoe: Carmen, are you okay with that?
+
+Carmen: Yes, I can shift focus. I'll need to hand off my current work on the reporting module.
+
+Zoe: Let's get that handoff done by end of this week. Who should pick up the reporting module?
+
+Hiro: I can take it. I've reviewed that codebase before.
+
+Zoe: Perfect. Hiro, can you connect with Carmen by tomorrow to get briefed?
+
+Hiro: Will do.
+
+Zoe: Diana, I know you had a question about on-call rotation.
+
+Diana: Yeah — the current rotation has people on-call every third week. With the team growth, can we move to every fourth week?
+
+Zoe: I'm supportive. Sam, can you update the PagerDuty schedule by end of next week?
+
+Sam: I'll take care of it. I'll also document the rotation policy so it's clear for new hires.
+
+Kai: One thing I wanted to raise — we don't have a standard for internal API documentation. Every service documents things differently.
+
+Zoe: That's a real pain point. Kai, would you be willing to draft a documentation standard and share it with the team for feedback?
+
+Kai: Sure. I can have a proposal ready in 3 weeks.
+
+Zoe: Great. I'll add it to the April all-hands agenda. Any other questions?
+
+Finn: When will the new developer environment setup script be ready? Onboarding a new hire right now takes half a day.
+
+Zoe: Abby, where does that stand?
+
+Abby: I was waiting on some tooling decisions. Now that those are settled, I can finish it by March 13th.
+
+Zoe: Let's make that happen. Alright, that's a wrap. I'll send a summary of decisions and action items today.

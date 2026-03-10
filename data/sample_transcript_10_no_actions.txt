@@ -1,0 +1,36 @@
+Meeting: Architecture Discussion — Microservices vs Monolith
+Date: Mar 2, 2026
+Attendees: Pavel, Ruth, Tomás, Kira
+Duration: 40 minutes
+
+⸻
+
+Pavel: I wanted to get everyone's thoughts on the architecture direction. We've been talking about breaking up the monolith for two years and I think it's time to make a call.
+
+Ruth: My concern with microservices is operational overhead. We're a team of eight engineers. Running twelve services adds a lot of complexity — service discovery, distributed tracing, coordinated deployments.
+
+Tomás: That's real, but the monolith is genuinely getting painful. Deployments take 40 minutes. We're stepping on each other constantly in the same codebase.
+
+Kira: What if we went modular monolith first? We keep a single deployable but enforce strict module boundaries. Then we extract services later if we actually need to.
+
+Pavel: That's an interesting middle ground.
+
+Ruth: I like it. It gives us most of the development benefits without the operational cost.
+
+Tomás: The risk is we never actually extract anything and end up with the same mess but with more rules.
+
+Pavel: That's a valid risk. But I think discipline is easier to maintain than infrastructure.
+
+Kira: Agreed. And we can set a clear trigger — if any module hits a scaling limit that the others don't share, that's when we extract.
+
+Ruth: That's a sensible heuristic.
+
+Pavel: Okay, I think we're aligned. We go with the modular monolith approach. We'll define module boundaries before the next sprint. Clear ownership per module, no cross-module imports except through defined interfaces.
+
+Tomás: I can live with that. Better than doing nothing.
+
+Pavel: Good. Let's revisit in six months and assess whether anything needs to be extracted. Ruth, can you document the module boundary rules?
+
+Ruth: Sure, I'll write up the conventions.
+
+Pavel: Thanks everyone. Good discussion.

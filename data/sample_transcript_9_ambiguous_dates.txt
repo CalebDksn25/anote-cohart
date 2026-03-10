@@ -1,0 +1,48 @@
+Meeting: Product Roadmap Planning
+Date: Feb 24, 2026
+Attendees: Lin (CPO), Brett, Simone, Yusuf
+Duration: 50 minutes
+
+⸻
+
+Lin: We need to finalize what we're building next quarter. Let's go through the shortlist.
+
+Brett: I still think the AI search feature is the highest priority. We've had three enterprise prospects ask about it this month.
+
+Simone: I agree, but it's at least two months of work. Can we ship something smaller first to hit our Q1 numbers?
+
+Yusuf: What about the bulk export feature? That's been on the backlog forever and customers keep asking for it.
+
+Lin: Let's do both — start bulk export now, get AI search underway in parallel. Brett, can you write the spec for bulk export?
+
+Brett: Yeah. I'll get something drafted soon.
+
+Lin: I need it sooner than that — we have sprint planning next week. Can you have it done early next week?
+
+Brett: Okay, I'll push. I'll get it done by then.
+
+Simone: For AI search, we'll need to evaluate embedding providers. I can start on that.
+
+Lin: Good. When can you have a recommendation?
+
+Simone: Sometime next week? There's a lot to compare.
+
+Lin: Let's say by next Friday to keep it on track.
+
+Simone: I'll try.
+
+Yusuf: We should also decide now on pricing. Are we bundling AI search or charging extra?
+
+Lin: For now, it's a premium add-on. We'll revisit after the pilot. That's decided.
+
+Brett: What about the mobile app refresh? It keeps coming up in customer calls.
+
+Lin: Not this quarter. We're deprioritizing it until after the AI search launch.
+
+Yusuf: Fair. One last thing — the onboarding funnel is still leaking at step three. We haven't fixed that in ages.
+
+Lin: Yusuf, can you run a quick audit and tell me what it would take to fix it?
+
+Yusuf: I can pull the data. Give me a few days.
+
+Lin: Let's say by end of week. Alright, I'll send out the roadmap draft ASAP. Good discussion everyone.

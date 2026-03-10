@@ -1,0 +1,44 @@
+Meeting: Sprint Retrospective — Sprint 14
+Date: Mar 6, 2026
+Attendees: Elena, Ben, Tara, Oscar, Maya
+Duration: 60 minutes
+
+⸻
+
+Elena: Let's start with what went well.
+
+Ben: We shipped the notification service on time and it's stable. That felt really good after the last two sprints.
+
+Tara: Collaboration between design and engineering was much smoother. The shared Figma workspace helped a lot.
+
+Oscar: Agreed. Also the new deployment pipeline saved us probably four hours this sprint.
+
+Elena: Great. Now — what didn't go well?
+
+Maya: The acceptance criteria on the search tickets were vague. We spent almost a full day just clarifying requirements before we could start.
+
+Ben: Yeah, that cost us the analytics dashboard. We didn't get to it.
+
+Oscar: Standup has also been running long. We keep getting into problem-solving mode when we should just be flagging blockers.
+
+Elena: Okay. Let's talk actions. Maya, can you own drafting an acceptance criteria template we can use for all future tickets?
+
+Maya: Yes. I'll have a draft ready by tomorrow.
+
+Elena: Ben, can you move the analytics dashboard to the top of the backlog and make sure it's properly sized before next sprint planning?
+
+Ben: Will do, I'll get that done in 3 days.
+
+Elena: Oscar, can you add a timer to standup — five minutes max per person?
+
+Oscar: Easy, I'll set that up today.
+
+Tara: One more thing — I think we should do a quick design-eng sync at the start of each sprint to review the upcoming tickets together before they're written. That could prevent the ambiguous criteria problem.
+
+Elena: I like that. Let's make it official — we'll add a 30-minute design-eng kickoff to the sprint start.
+
+Ben: Works for me.
+
+Maya: Same.
+
+Elena: Alright, I'll send the retro summary out end of week. Good sprint everyone.

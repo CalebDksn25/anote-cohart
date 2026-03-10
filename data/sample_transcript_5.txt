@@ -1,0 +1,50 @@
+Meeting: Client Onboarding Call — Meridian Health
+Date: Feb 17, 2026
+Attendees: Dana (Account Manager), Kevin (Solutions Engineer), Sara (Meridian — CTO), Will (Meridian — Product Lead)
+Duration: 30 minutes
+
+⸻
+
+Dana: Thanks for joining, Sara and Will. We're excited to get Meridian up and running. Kevin is going to walk you through the technical setup, and I'll handle the account side.
+
+Kevin: Great to meet you both. First question — have you had a chance to review the integration guide we sent over?
+
+Sara: We looked at it. We'll need SSO via SAML 2.0. Is that supported?
+
+Kevin: Yes, fully supported. I'll send you the SAML configuration docs after this call.
+
+Sara: Perfect. We also have a strict data residency requirement — everything needs to stay in the US region.
+
+Kevin: That's our default for enterprise accounts, so you're covered. I'll confirm that in writing.
+
+Will: On the product side, we want to pilot with just the marketing team first — about 15 users. Can we expand later without re-contracting?
+
+Dana: Absolutely. Your contract has a seat expansion clause. I'll highlight the relevant section and send it over today.
+
+Will: Great. One other thing — we'll need custom branding on the dashboard. Logo, colors, the works.
+
+Dana: That's in scope for your tier. Kevin, how long does white-labeling typically take to configure?
+
+Kevin: Usually three to five business days once we have the brand assets. Will, can your team send those over by February 20th?
+
+Will: I'll check with our designer. I think we can do that.
+
+Dana: If you can confirm by end of week, we can target a go-live date of March 2nd.
+
+Sara: That timeline works for us. We just need the SSO config docs first so our IT team can start on their end.
+
+Kevin: I'll send those in 2 hours.
+
+Dana: We also need to schedule a training session for the Meridian admins. Can we aim for the week of February 24th?
+
+Will: Yes, that week works.
+
+Dana: I'll send a calendar invite for February 25th. Kevin, can you lead the training?
+
+Kevin: Confirmed.
+
+Dana: Perfect. I'll send a summary of today's call and next steps by end of day. Any questions before we wrap?
+
+Sara: None from us.
+
+Dana: Great. Talk soon.

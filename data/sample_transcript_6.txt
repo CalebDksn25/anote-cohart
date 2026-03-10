@@ -1,0 +1,42 @@
+Meeting: Incident Postmortem — Payment Outage (INC-2041)
+Date: Jan 30, 2026
+Attendees: Ravi (On-call Lead), Ines (Backend), Cole (Infrastructure), Nadia (Support Lead)
+Duration: 45 minutes
+
+⸻
+
+Ravi: Let's go through the timeline first. Cole, can you walk us through what happened?
+
+Cole: At 14:03 UTC the payment processor started returning 503s. We traced it to a config change pushed at 13:58 — the new rate limit on the payments API was set two orders of magnitude lower than intended.
+
+Ines: I pushed that config. I misread the unit — it was requests per second, not per minute. I caught it in the logs about eight minutes after the push.
+
+Ravi: The rollback happened at 14:11. Total impact window was about 13 minutes. Nadia, what did support see?
+
+Nadia: We got 47 tickets in that window. About 200 users were affected. Most were mid-checkout. We've already sent apology emails to all 47.
+
+Ravi: Good. Now let's talk about what failed in our process. First — why wasn't this caught in staging?
+
+Cole: Staging uses a different config file. The rate limit change only existed in the production config.
+
+Ines: And our config review checklist doesn't require a second set of eyes for rate limit changes. It probably should.
+
+Ravi: Agreed. What are our action items?
+
+Cole: I'll update the deploy runbook to require peer review for any production config changes. I can have that done by next Friday.
+
+Ines: I'll add a config validation step to the CI pipeline so mismatched staging/prod values get flagged automatically. That'll take me about a week — so by February 6th.
+
+Ravi: Nadia, can you draft an improved customer communication template for payment outages specifically? Something faster to send than what we used this time.
+
+Nadia: Yes. I'll have a draft ready tomorrow.
+
+Ravi: I'll schedule a follow-up in 2 weeks to check progress on all these. Also, we've decided to add rate limit changes to the high-risk config category — that means they'll require VP sign-off going forward.
+
+Cole: Makes sense.
+
+Ines: Agreed.
+
+Ravi: Alright. I'll circulate the postmortem doc for review by end of week. Let me know if I've missed anything.
+
+Nadia: Looks complete to me.
