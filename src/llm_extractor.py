@@ -154,4 +154,9 @@ class LLMExtractor:
                 # Set the normalized due date in the follow-up item dictionary. This will allow the extractor to have a standardized date format for the due dates in follow-ups as well, which can be used for further processing or evaluation.
                 item["due"] = normalized.due
 
+                if normalized.needs_human_review:
+                    item["needs_human_review"] = True
+                    if not item.get("reason"):
+                        item["reason"] = normalized.reason
+
         return data
