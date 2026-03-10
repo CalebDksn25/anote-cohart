@@ -118,6 +118,66 @@ def normalize_due_raw(
         dt = _next_or_same_weekday(meeting_date, wd)
         return NormalizedDue(due=dt.isoformat(), needs_human_review=False)
 
+    # Handle "today" / "tomorrow"
+    if s == "today":
+        return NormalizedDue(due=meeting_date.isoformat(), needs_human_review=False)
+    if s == "tomorrow":
+        dt = meeting_date + timedelta(days=1)
+        return NormalizedDue(due=dt.isoformat(), needs_human_review=False)
+
+    # Handle "in N days" / "in N weeks"
+    m_in_days = re.match(r"^in\s+(\d+)\s+days?$", s)
+    if m_in_days:
+        dt = meeting_date + timedelta(days=int(m_in_days.group(1)))
+        return NormalizedDue(due=dt.isoformat(), needs_human_review=False)
+
+    m_in_weeks = re.match(r"^in\s+(\d+)\s+weeks?$", s)
+    if m_in_weeks:
+        dt = meeting_date + timedelta(weeks=int(m_in_weeks.group(1)))
+        return NormalizedDue(due=dt.isoformat(), needs_human_review=False)
+
+    # Handle "end of month" / "end of <month>"
+    m_eom = re.match(r"^end\s+of\s+month$", s)
+    if m_eom:
+        import calendar
+        last_day = calendar.monthrange(meeting_date.year, meeting_date.month)[1]
+        dt = date(meeting_date.year, meeting_date.month, last_day)
+        return NormalizedDue(due=dt.isoformat(), needs_human_review=False)
+
+    m_eom_named = re.match(r"^end\s+of\s+([a-z]{3,9})$", s)
+    if m_eom_named:
+        import calendar
+        mon_str = m_eom_named.group(1).capitalize()[:3]
+        if mon_str in MONTHS:
+            month_num = MONTHS[mon_str]
+            year = meeting_date.year
+            last_day = calendar.monthrange(year, month_num)[1]
+            dt = date(year, month_num, last_day)
+            return NormalizedDue(due=dt.isoformat(), needs_human_review=False)
+
+    # Handle specific dates: "Jan 25", "January 25", "Jan 25th", "January 25, 2026"
+    FULL_MONTHS = {
+        "january": "Jan", "february": "Feb", "march": "Mar", "april": "Apr",
+        "may": "May", "june": "Jun", "july": "Jul", "august": "Aug",
+        "september": "Sep", "october": "Oct", "november": "Nov", "december": "Dec",
+    }
+    m_date = re.match(
+        r"^([a-z]{3,9})\s+(\d{1,2})(?:st|nd|rd|th)?(?:,?\s+(\d{4}))?$", s
+    )
+    if m_date:
+        raw_mon = m_date.group(1)
+        # Normalize full month name to 3-letter abbreviation
+        mon_key = FULL_MONTHS.get(raw_mon, raw_mon.capitalize()[:3])
+        if mon_key in MONTHS:
+            month_num = MONTHS[mon_key]
+            day_num = int(m_date.group(2))
+            year_num = int(m_date.group(3)) if m_date.group(3) else meeting_date.year
+            try:
+                dt = date(year_num, month_num, day_num)
+                return NormalizedDue(due=dt.isoformat(), needs_human_review=False)
+            except ValueError:
+                pass
+
     # If we got here, we couldn't parse it confidently
     return NormalizedDue(
         due=None,
