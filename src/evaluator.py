@@ -2,9 +2,6 @@ from typing import Any, Dict, List, Tuple, Optional
 from collections import Counter
 import re
 
-
-# TODO: Explore different evaluation metrics
-
 _TOKEN_RE = re.compile(r"[A-Za-z0-9]+")
 
 
