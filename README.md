@@ -11,6 +11,16 @@
 
 The current `v1` focus is transcript -> structured output plus lightweight evaluation. Automatically sending follow-ups, scheduling meetings, or executing tasks is intentionally out of scope for now.
 
+## Submission-ready summary
+
+This repository is ready to demo as a focused `v1` because it can:
+
+- extract structured meeting outputs from a transcript
+- capture `action_items`, `decisions`, and `follow_ups`
+- assign owners and deadlines when explicitly stated
+- flag ambiguous details for human review
+- evaluate extraction quality against labeled gold data
+
 ## Current status
 
 The project currently supports:
@@ -55,14 +65,36 @@ source .venv/bin/activate
 Install dependencies:
 
 ```bash
-pip install openai python-dotenv pytest
+pip install -r requirements.txt
 ```
 
-Add your OpenAI API key to `.env`:
+Create `.env` from the example and add your OpenAI API key:
+
+```bash
+cp .env.example .env
+```
+
+Then set:
 
 ```bash
 OPENAI_API_KEY=sk-...
 ```
+
+## Quick demo
+
+If you only need the shortest path for a final presentation, run these three commands:
+
+```bash
+python main.py data/sample_transcript_1.txt
+python eval.py data/sample_transcript_1.txt data/sample_transcript.gold.json
+pytest -q
+```
+
+That demonstrates:
+
+- extraction
+- evaluation
+- passing tests
 
 ## Run extraction
 
@@ -134,6 +166,7 @@ The evaluation report includes:
 - hallucination counts
 - missed-item counts
 - owner and due accuracy on matched `action_items` and `follow_ups`
+- matched, hallucinated, and missed item details for debugging
 
 ## Evaluation metric
 
@@ -174,6 +207,15 @@ This is still a focused `v1`. It does not yet:
 - ingest transcripts directly from Zoom or Google Meet APIs
 - output JSON from the CLI
 - execute follow-up actions such as drafting emails or scheduling meetings
+
+## Presentation framing
+
+If you need a concise way to describe the project in a demo:
+
+- `Problem:` meetings create next steps that are easy to lose
+- `Approach:` use an LLM to extract structured outputs from transcripts, then score the results against labeled data
+- `What works now:` extraction, ambiguity flagging, and evaluation
+- `What comes next:` clarification questions and downstream automation
 
 ## Suggested next steps
 
