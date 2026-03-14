@@ -6,49 +6,64 @@ interface Props {
 
 export default function ActionItemCard({ item }: Props) {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-      <div className="flex items-start justify-between gap-2">
-        <p className="font-medium text-gray-900">{item.text}</p>
+    <div className="rounded-xl border border-[#1e3a5f] bg-[#0f1e35] p-4 transition-colors hover:border-cyan-500/30">
+      <div className="flex items-start justify-between gap-3">
+        <p className="font-medium text-white">{item.text}</p>
         {item.needs_human_review && (
-          <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">
+          <span className="shrink-0 rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-400">
             Needs review
           </span>
         )}
       </div>
-      <dl className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-gray-600">
+
+      <div className="mt-3 flex flex-wrap gap-3">
         {item.owner && (
-          <>
-            <dt className="font-medium">Owner</dt>
-            <dd>{item.owner}</dd>
-          </>
+          <Chip icon="👤" label={item.owner} />
         )}
         {item.due && (
-          <>
-            <dt className="font-medium">Due</dt>
-            <dd>{item.due}</dd>
-          </>
+          <Chip icon="📅" label={item.due} highlight />
         )}
         {item.due_raw && !item.due && (
-          <>
-            <dt className="font-medium">Due (raw)</dt>
-            <dd>{item.due_raw}</dd>
-          </>
+          <Chip icon="📅" label={item.due_raw} />
         )}
-        {item.reason && (
-          <>
-            <dt className="font-medium">Review reason</dt>
-            <dd className="text-amber-700">{item.reason}</dd>
-          </>
-        )}
-      </dl>
-      <details className="mt-3">
-        <summary className="cursor-pointer text-xs text-gray-400 hover:text-gray-600">
-          Evidence
+      </div>
+
+      {item.reason && (
+        <p className="mt-2 text-xs text-amber-400/80">{item.reason}</p>
+      )}
+
+      <details className="mt-3 group">
+        <summary className="cursor-pointer list-none text-xs text-slate-600 transition-colors hover:text-slate-400 group-open:text-slate-400">
+          <span className="group-open:hidden">▸ Evidence</span>
+          <span className="hidden group-open:inline">▾ Evidence</span>
         </summary>
-        <blockquote className="mt-1 border-l-2 border-gray-200 pl-3 text-xs italic text-gray-500">
+        <blockquote className="mt-2 border-l-2 border-cyan-500/30 pl-3 text-xs italic text-slate-500">
           {item.evidence}
         </blockquote>
       </details>
     </div>
+  );
+}
+
+function Chip({
+  icon,
+  label,
+  highlight,
+}: {
+  icon: string;
+  label: string;
+  highlight?: boolean;
+}) {
+  return (
+    <span
+      className={[
+        "inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium",
+        highlight
+          ? "border-cyan-500/30 bg-cyan-500/10 text-cyan-400"
+          : "border-[#1e3a5f] bg-[#0a1628] text-slate-400",
+      ].join(" ")}
+    >
+      {icon} {label}
+    </span>
   );
 }

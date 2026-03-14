@@ -47,15 +47,16 @@ export default function UploadForm({ onSubmit, disabled }: Props) {
         onDragLeave={() => setDragOver(false)}
         onDrop={handleDrop}
         className={[
-          "flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-10 transition-colors",
+          "flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-12 transition-all",
           dragOver
-            ? "border-blue-400 bg-blue-50"
-            : "border-gray-300 bg-gray-50 hover:border-gray-400",
-          disabled ? "cursor-not-allowed opacity-50" : "",
+            ? "border-cyan-400 bg-cyan-400/5 glow-cyan"
+            : "border-[#1e3a5f] bg-[#0a1628] hover:border-cyan-500/40 hover:bg-cyan-400/5",
+          disabled ? "cursor-not-allowed opacity-40" : "",
         ].join(" ")}
       >
+        {/* Upload icon */}
         <svg
-          className="mb-3 h-10 w-10 text-gray-400"
+          className={`mb-4 h-10 w-10 transition-colors ${dragOver ? "text-cyan-400" : "text-slate-600"}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -64,17 +65,24 @@ export default function UploadForm({ onSubmit, disabled }: Props) {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={1.5}
-            d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
           />
         </svg>
         {selectedFile ? (
-          <p className="text-sm font-medium text-gray-700">{selectedFile.name}</p>
+          <div className="flex items-center gap-2">
+            <svg className="h-4 w-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
+            </svg>
+            <p className="text-sm font-medium text-cyan-400">{selectedFile.name}</p>
+          </div>
         ) : (
           <>
-            <p className="text-sm font-medium text-gray-700">
-              Drag & drop a .txt transcript here
+            <p className="text-sm font-medium text-slate-300">
+              Drag & drop your transcript here
             </p>
-            <p className="mt-1 text-xs text-gray-400">or click to browse</p>
+            <p className="mt-1 text-xs text-slate-500">
+              or <span className="text-cyan-400">click to browse</span> — .txt files only
+            </p>
           </>
         )}
         <input
@@ -89,7 +97,7 @@ export default function UploadForm({ onSubmit, disabled }: Props) {
       <button
         type="submit"
         disabled={!selectedFile || disabled}
-        className="w-full rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full rounded-lg bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-[#0a1628] transition-all hover:bg-cyan-400 disabled:cursor-not-allowed disabled:opacity-40"
       >
         Extract
       </button>

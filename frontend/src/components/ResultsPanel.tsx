@@ -34,25 +34,26 @@ export default function ResultsPanel({ data }: Props) {
         <ValidationBanner warnings={data.validation.warnings} />
       )}
 
-      <div className="flex gap-1 rounded-lg border border-gray-200 bg-gray-100 p-1">
+      {/* Tab bar */}
+      <div className="flex gap-1 rounded-xl border border-[#1e3a5f] bg-[#0f1e35] p-1">
         {TABS.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={[
-              "flex flex-1 items-center justify-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+              "flex flex-1 items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all",
               activeTab === tab.id
-                ? "bg-white text-gray-900 shadow-sm"
-                : "text-gray-500 hover:text-gray-700",
+                ? "bg-[#0a1628] text-white shadow-sm border border-[#1e3a5f]"
+                : "text-slate-500 hover:text-slate-300",
             ].join(" ")}
           >
             {tab.label}
             <span
               className={[
-                "rounded-full px-1.5 py-0.5 text-xs",
+                "rounded-full px-1.5 py-0.5 text-xs font-semibold",
                 activeTab === tab.id
-                  ? "bg-blue-100 text-blue-700"
-                  : "bg-gray-200 text-gray-500",
+                  ? "bg-cyan-500/20 text-cyan-400"
+                  : "bg-slate-700/50 text-slate-500",
               ].join(" ")}
             >
               {counts[tab.id]}
@@ -61,12 +62,11 @@ export default function ResultsPanel({ data }: Props) {
         ))}
       </div>
 
+      {/* Content */}
       <div className="space-y-3">
         {activeTab === "action_items" &&
           (data.action_items.length === 0 ? (
-            <p className="py-8 text-center text-sm text-gray-400">
-              No action items found.
-            </p>
+            <EmptyState label="No action items found." />
           ) : (
             data.action_items.map((item, i) => (
               <ActionItemCard key={i} item={item} />
@@ -75,20 +75,14 @@ export default function ResultsPanel({ data }: Props) {
 
         {activeTab === "decisions" &&
           (data.decisions.length === 0 ? (
-            <p className="py-8 text-center text-sm text-gray-400">
-              No decisions found.
-            </p>
+            <EmptyState label="No decisions found." />
           ) : (
-            data.decisions.map((item, i) => (
-              <DecisionCard key={i} item={item} />
-            ))
+            data.decisions.map((item, i) => <DecisionCard key={i} item={item} />)
           ))}
 
         {activeTab === "follow_ups" &&
           (data.follow_ups.length === 0 ? (
-            <p className="py-8 text-center text-sm text-gray-400">
-              No follow-ups found.
-            </p>
+            <EmptyState label="No follow-ups found." />
           ) : (
             data.follow_ups.map((item, i) => (
               <FollowUpCard key={i} item={item} />
@@ -96,5 +90,11 @@ export default function ResultsPanel({ data }: Props) {
           ))}
       </div>
     </div>
+  );
+}
+
+function EmptyState({ label }: { label: string }) {
+  return (
+    <p className="py-10 text-center text-sm text-slate-600">{label}</p>
   );
 }

@@ -49,20 +49,52 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="mx-auto max-w-2xl px-4 py-12">
-        <header className="mb-8 text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-            anote
+    <main className="min-h-screen" style={{ background: "var(--background)" }}>
+      {/* Top nav bar */}
+      <nav className="border-b border-[#1e3a5f] px-6 py-4">
+        <div className="mx-auto flex max-w-3xl items-center gap-2">
+          {/* Anote logo mark — stylised rocket pen */}
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
+            <path
+              d="M4 18L9.5 12.5M9.5 12.5L14 4L18 8L9.5 12.5Z"
+              stroke="#22d3ee"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <circle cx="4.5" cy="17.5" r="1.5" fill="#22d3ee" />
+          </svg>
+          <span className="text-lg font-semibold tracking-tight text-white">
+            Anote
+          </span>
+          <span className="ml-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2 py-0.5 text-[11px] font-medium text-cyan-400">
+            Cohart
+          </span>
+        </div>
+      </nav>
+
+      <div className="mx-auto max-w-3xl px-4 py-12">
+        {/* Hero */}
+        <header className="mb-10 text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-white">
+            Meeting Transcript Extractor
           </h1>
-          <p className="mt-2 text-gray-500">
-            Upload a meeting transcript to extract action items, decisions, and
-            follow-ups.
+          <p className="mt-3 text-base" style={{ color: "var(--muted)" }}>
+            Upload a transcript and instantly surface action items, decisions,
+            and follow-ups — powered by{" "}
+            <span className="text-cyan-400">Human Centered AI</span>.
           </p>
         </header>
 
+        {/* Upload card */}
         {state.status !== "success" && (
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div
+            className="rounded-2xl border p-6"
+            style={{
+              background: "var(--card)",
+              borderColor: "var(--card-border)",
+            }}
+          >
             <UploadForm
               onSubmit={handleSubmit}
               disabled={state.status === "loading"}
@@ -70,34 +102,34 @@ export default function Home() {
           </div>
         )}
 
-        <div className="mt-6">
+        <div className="mt-6 space-y-4">
           {state.status === "loading" && <LoadingSpinner />}
 
           {state.status === "error" && (
-            <div className="space-y-4">
+            <>
               <ErrorAlert
                 message={state.message}
                 validationErrors={state.validationErrors}
               />
               <button
                 onClick={handleReset}
-                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                className="w-full rounded-lg border border-[#1e3a5f] bg-[#0f1e35] px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:border-cyan-500/50 hover:text-white"
               >
                 Try again
               </button>
-            </div>
+            </>
           )}
 
           {state.status === "success" && (
-            <div className="space-y-4">
+            <>
               <ResultsPanel data={state.data} />
               <button
                 onClick={handleReset}
-                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                className="w-full rounded-lg border border-[#1e3a5f] bg-[#0f1e35] px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:border-cyan-500/50 hover:text-white"
               >
                 Upload another transcript
               </button>
-            </div>
+            </>
           )}
         </div>
       </div>
