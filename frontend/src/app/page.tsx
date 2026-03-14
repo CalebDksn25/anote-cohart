@@ -53,22 +53,8 @@ export default function Home() {
       {/* Top nav bar */}
       <nav className="border-b border-[#1e3a5f] px-6 py-4">
         <div className="mx-auto flex max-w-3xl items-center gap-2">
-          {/* Anote logo mark — stylised rocket pen */}
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-            <path
-              d="M4 18L9.5 12.5M9.5 12.5L14 4L18 8L9.5 12.5Z"
-              stroke="#22d3ee"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <circle cx="4.5" cy="17.5" r="1.5" fill="#22d3ee" />
-          </svg>
           <span className="text-lg font-semibold tracking-tight text-white">
             Anote
-          </span>
-          <span className="ml-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2 py-0.5 text-[11px] font-medium text-cyan-400">
-            Cohart
           </span>
         </div>
       </nav>
