@@ -69,7 +69,13 @@ def test_format_evaluation_report_includes_sections():
         "action_items": {
             "precision": 1.0,
             "recall": 1.0,
-            "matched": [{}],
+            "matched": [
+                {
+                    "pred": {"text": "Fix the login bug", "owner": "Alex", "due": "2026-01-30"},
+                    "gold": {"text": "Fix the login bug", "owner": "Alex", "due": "2026-01-30"},
+                    "text_score": 1.0,
+                }
+            ],
             "hallucinations": [],
             "missed": [],
             "owner_accuracy_on_matched": 1.0,
@@ -78,8 +84,14 @@ def test_format_evaluation_report_includes_sections():
         "decisions": {
             "precision": 0.5,
             "recall": 1.0,
-            "matched": [{}],
-            "hallucinations": [{}],
+            "matched": [
+                {
+                    "pred": {"text": "Use the new auth flow"},
+                    "gold": {"text": "Use the new auth flow"},
+                    "text_score": 1.0,
+                }
+            ],
+            "hallucinations": [{"pred": {"text": "Cancel the release"}, "best_score": 0.25}],
             "missed": [],
         },
         "follow_ups": {
@@ -87,7 +99,7 @@ def test_format_evaluation_report_includes_sections():
             "recall": 0.0,
             "matched": [],
             "hallucinations": [],
-            "missed": [{}],
+            "missed": [{"text": "Schedule a status check", "owner": "Sam", "due": "2026-01-30"}],
             "owner_accuracy_on_matched": 0.0,
             "due_accuracy_on_matched": 0.0,
         },
@@ -101,3 +113,9 @@ def test_format_evaluation_report_includes_sections():
     assert "Decisions" in report
     assert "Follow Ups" in report
     assert "owner accuracy on matched: 1.00" in report
+    assert "matched details:" in report
+    assert "score=1.00" in report
+    assert "hallucinations:" in report
+    assert "best_score=0.25" in report
+    assert "missed gold items:" in report
+    assert "Schedule a status check" in report
